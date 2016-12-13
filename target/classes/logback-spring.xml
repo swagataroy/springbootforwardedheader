@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+       
+    <property name="MAIN_LOG_FILE" value="${LOG_PATH}/main}"/>
+    <property name="CUSTOM_LOG_FILE" value="${LOG_PATH}/custom}"/>
+   
+     <appender name="APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+                <File>${MAIN_LOG_FILE}.log</File>
+               	<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                        <fileNamePattern>${MAIN_LOG_FILE}.%d{yyyy-MM-dd}.log</fileNamePattern>
+                </rollingPolicy>
+                <layout class="ch.qos.logback.classic.PatternLayout">
+                        <Pattern>[%level] %d %p %t %c - %m%n</Pattern>
+                </layout>
+    </appender>
+    
+     <appender name="CUSTOM_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+         <File>${CUSTOM_LOG_FILE}.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <FileNamePattern>${CUSTOM_LOG_FILE}.%d{yyyy-MM-dd}.log</FileNamePattern>
+        </rollingPolicy>
+
+        <layout class="ch.qos.logback.classic.PatternLayout">
+                <Pattern>%msg%n</Pattern>
+        </layout>
+    </appender>
+    
+    <logger name="CUSTOM_LOGGER" additivity="false" level="INFO">
+        <appender-ref ref="CUSTOM_APPENDER" />
+    </logger>
+         
+    <root level="INFO">
+     
+        <appender-ref ref="APPENDER" />
+    </root>
+</configuration>
