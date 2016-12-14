@@ -14,10 +14,8 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.Ordered;
-import org.springframework.web.servlet.ViewResolver;
-//import org.thymeleaf.spring4.view.ThymeleafViewResolver;
-import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 
+import eu.filter.ForwardedHeaderFilter;
 import eu.got.bootprime.base.filter.Test404Filter;
 import eu.got.bootprime.base.filter.Test5xxFilter;
 import eu.got.bootprime.base.filter.TestExceptionFilter;
@@ -88,4 +86,23 @@ public class WebApplication extends SpringBootServletInitializer {
         registration.addUrlPatterns("/testException/*");
         return registration;
     }
+    
+
+	
+	/*@Bean
+	   public ForwardedHeaderFilter forwardedHeaderFilter() throws ServletException { 
+		ForwardedHeaderFilter filter = new ForwardedHeaderFilter();
+		   FilterConfig filterConfig = null;
+		   filter.init(filterConfig);
+		return filter;
+	}*/
+	
+	@Bean
+    FilterRegistrationBean forwardedHeaderFilter() {
+        FilterRegistrationBean filterRegBean = new FilterRegistrationBean();
+        filterRegBean.setFilter(new ForwardedHeaderFilter());
+        filterRegBean.setOrder(Ordered.HIGHEST_PRECEDENCE);
+        return filterRegBean;
+    }
+	
 }
