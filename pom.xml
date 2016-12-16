@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>eu.got</groupId>
   <artifactId>bootprime-base</artifactId>
-  <packaging>war</packaging>
+  <!--  <packaging>war</packaging> -->
   <version>0.0.2-SNAPSHOT</version>
   <name>bootprime-base Maven Webapp</name>
   <url>http://maven.apache.org</url>
@@ -34,6 +34,7 @@
 		<!-- <rdbms-common-lib.version>[1.1.1.0,1.1.2)</rdbms-common-lib.version>
 		<rdbms-engine-common-lib.version>[1.1.1.0,1.1.2)</rdbms-engine-common-lib.version> -->
 		<org.springframework.version>4.3.2.RELEASE</org.springframework.version>
+		<start-class>eu.got.bootprime.base.WebApplication</start-class>
 	</properties>
 
 
@@ -230,7 +231,7 @@
 
 
 	</dependencies>
-	<build>
+	<!--  <build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -253,5 +254,15 @@
 				</configuration>
 			</plugin>
 		</plugins>
-	</build>
+	</build> -->   
+	
+	<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+    </plugins>
+</build>
+
 </project>
