@@ -14,8 +14,10 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.Ordered;
+import org.springframework.web.filter.ForwardedHeaderFilter;
 
-import eu.filter.ForwardedHeaderFilter;
+//import eu.filter.ForwardedHeaderFilter;
+
 import eu.got.bootprime.base.filter.Test404Filter;
 import eu.got.bootprime.base.filter.Test5xxFilter;
 import eu.got.bootprime.base.filter.TestExceptionFilter;

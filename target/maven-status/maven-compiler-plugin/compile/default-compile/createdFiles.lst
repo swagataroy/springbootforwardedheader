@@ -1,11 +1,8 @@
 eu/got/bootprime/base/filter/Test404Filter.class
-eu/filter/ForwardedHeaderFilter$ForwardedHeaderResponseWrapper.class
 eu/got/bootprime/base/controller/IndexView.class
 eu/got/bootprime/base/filter/TestExceptionFilter.class
 eu/got/bootprime/base/service/MessageService.class
-eu/filter/ForwardedHeaderFilter.class
 eu/got/bootprime/base/WebApplication.class
-eu/filter/ForwardedHeaderFilter$ForwardedHeaderRequestWrapper.class
 eu/got/bootprime/base/service/LanguageService.class
 eu/got/bootprime/base/controller/HomeController.class
 eu/got/bootprime/base/filter/Test5xxFilter.class
